@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./Discord_Bot').login(process.env.DISCORD_TOKEN);
 
 const express = require('express');
 const logger = require('morgan');

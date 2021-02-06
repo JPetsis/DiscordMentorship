@@ -13,6 +13,6 @@ usersRouter
   .get(usersController.getOne)
   .delete(usersController.delete);
 
-usersRouter.route("/username/:username").get(usersController.getByUsername);
+usersRouter.route("/discordId/:id").get(usersController.getByDiscordId);
 
 module.exports = usersRouter;

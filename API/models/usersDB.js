@@ -7,13 +7,13 @@ module.exports = {
   findById(id) {
     return db.one("SELECT * FROM users WHERE id = $1", id);
   },
-  findByUsername(username) {
-    return db.one("SELECT * FROM users WHERE username = $1", username);
+  findByDiscordId(id) {
+    return db.one("SELECT * FROM users WHERE discord_id = $1", id);
   },
   save(user) {
     return db.one(
-      `INSERT INTO users (username, password, email) 
-      VALUES ($/username/, $/password/, $/email/)
+      `INSERT INTO users (first_name, last_name, email) 
+      VALUES ($/first_name/, $/last_name/, $/email/)
       RETURNING *`,
       user
     );
@@ -22,8 +22,8 @@ module.exports = {
     return db.one(
       `UPDATE users
       SET
-      username = $/username/,
-      password = $/password/
+      first_name = $/first_name/,
+      last_name = $/last_name/
       WHERE id = $/id/
       RETURNING *`,
       user

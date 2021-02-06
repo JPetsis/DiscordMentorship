@@ -24,11 +24,11 @@ module.exports = {
         else next(err);
       });
   },
-  getByUsername(req, res, next) {
+  getByDiscordId(req, res, next) {
     usersDB
-      .findByUsername(req.params.username)
+      .findByDiscordId(req.params.id)
       .then((user) =>
-        res.json({ message: "Getting user by username", data: user })
+        res.json({ message: "Getting user by discord name", data: user })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)

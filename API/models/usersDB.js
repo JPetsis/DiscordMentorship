@@ -24,6 +24,7 @@ module.exports = {
       SET
       first_name = $/first_name/,
       last_name = $/last_name/,
+      bio = $/bio/,
       linked_id = $/linked_id/,
       github = $/github/,
       portfolio = $/portfolio/,

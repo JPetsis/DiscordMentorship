@@ -13,6 +13,7 @@ app.use(cors());
 
 /* Routes */
 app.use("/users", require("./routes/userRoutes"));
+app.use("/mentors", require("./routes/mentorRoutes"));
 
 /* Default Routes */
 app.use("/", (req, res) => res.json({ message: "Discord Mentorship API" }));

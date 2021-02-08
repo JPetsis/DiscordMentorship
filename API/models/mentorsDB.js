@@ -12,8 +12,8 @@ module.exports = {
   },
   save(mentors) {
     return db.one(
-      `INSERT INTO mentors (id, created_at, users_id) 
-      VALUES ($/id/, $/created_at/, $/users_id/)
+      `INSERT INTO mentors (id, created_at) 
+      VALUES ($/id/, $/created_at/)
       RETURNING *`,
       mentors
     );

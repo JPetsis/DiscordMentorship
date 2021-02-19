@@ -1,23 +1,16 @@
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import HomePage from './components/pages/HomePage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return(
+        <div id="App">
+        <Router>
+            <div>
+            <Route exact path="/" component={HomePage} />
+            </div>
+        </Router>
+        </div>
+    );
 }
 
 export default App;

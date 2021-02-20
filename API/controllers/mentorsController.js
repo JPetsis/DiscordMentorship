@@ -8,7 +8,7 @@ module.exports = {
     mentorsDB
       .findAll()
       .then((mentors) =>
-        res.json({ message: "Getting Mentorss", data: mentors })
+        res.json({ message: "Getting Mentors", data: mentors })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)
@@ -19,7 +19,7 @@ module.exports = {
   getOne(req, res, next) {
     mentorsDB
       .findById(req.params.id)
-      .then((mentor) => res.json({ message: "Getting Mentorr", data: mentor }))
+      .then((mentor) => res.json({ message: "Getting Mentor", data: mentor }))
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)
           return res.json({ data: {} });
@@ -46,6 +46,11 @@ module.exports = {
       .save(req.body)
       .then((mentor) => res.json({ message: "Adding Mentor", data: mentor }))
       .catch((err) => next(err));
+  },
+  update(req, res, next) {
+    mentorsDB.update(req.body)
+    .then(mentor => res.json({ message: "Updated Mentor", data: mentor }))
+    .catch(err => next(err));
   },
   delete(req, res, next) {
     mentorsDB

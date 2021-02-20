@@ -5,7 +5,8 @@ const mentorsRouter = express.Router();
 mentorsRouter
   .route("/")
   .get(mentorsController.index)
-  .post(mentorsController.create);
+  .post(mentorsController.create)
+  .put(mentorsController.update);
 
 mentorsRouter
   .route("/id/:id")

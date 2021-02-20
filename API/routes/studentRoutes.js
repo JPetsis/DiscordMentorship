@@ -1,18 +1,18 @@
 const express = require("express");
 const studentsController = require("../controllers/studentsController");
-const studentRouter = express.Router();
+const studentsRouter = express.Router();
 
-studentRouter
+studentsRouter
   .route("/")
   .get(studentsController.index)
   .post(studentsController.create)
   .put(studentsController.update);
 
-studentRouter
+studentsRouter
   .route("/id/:id")
   .get(studentsController.getOne)
   .delete(studentsController.delete);
 
-studentRouter.route("/userId/:id").get(studentsController.getByUserId);
+studentsRouter.route("/userId/:id").get(studentsController.getByUserId);
 
-module.exports = studentRouter;
+module.exports = studentsRouter;

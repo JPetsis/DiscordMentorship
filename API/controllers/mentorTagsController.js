@@ -8,7 +8,7 @@ module.exports = {
     mentorTagsDB
       .findAll()
       .then((mentorTags) =>
-        res.json({ message: "Getting Student Tags", data: mentorTags })
+        res.json({ message: "Getting Mentor Tags", data: mentorTags })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)
@@ -20,7 +20,7 @@ module.exports = {
     mentorTagsDB
       .findById(req.params.id)
       .then((mentorTag) =>
-        res.json({ message: "Getting Tag", data: mentorTag })
+        res.json({ message: "Getting Mentor Tag", data: mentorTag })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)

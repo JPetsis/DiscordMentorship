@@ -12,8 +12,8 @@ module.exports = {
   },
   save(tag) {
     return db.one(
-      `INSERT INTO tags (id, name, created_at) 
-      VALUES ($/id/, $/name/, $/created_at/)
+      `INSERT INTO tags (name, created_at) 
+      VALUES ($/name/, $/created_at/)
       RETURNING *`,
       tag
     );

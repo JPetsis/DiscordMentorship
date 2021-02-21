@@ -20,7 +20,7 @@ module.exports = {
     studentTagsDB
       .findById(req.params.id)
       .then((studentTag) =>
-        res.json({ message: "Getting Tag", data: studentTag })
+        res.json({ message: "Getting Student Tag", data: studentTag })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)

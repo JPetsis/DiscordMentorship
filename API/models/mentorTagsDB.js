@@ -15,8 +15,8 @@ module.exports = {
   },
   save(mentorTag) {
     return db.one(
-      `INSERT INTO mentor_tags (id) 
-      VALUES ($/id/)
+      `INSERT INTO mentor_tags (tags_id, mentors_id) 
+      VALUES ($/tags_id/, $/mentors_id/)
       RETURNING *`,
       mentorTag
     );
@@ -25,8 +25,8 @@ module.exports = {
     return db.one(
       `UPDATE mentor_tags
     SET
-    id = $/id/,
-    WHERE id = $/id/
+    tags_id = $/tags_id/,
+    WHERE id = $/id/ AND mentors_id = $/mentors_id/
     RETURNING *`,
       mentorTag
     );

@@ -33,7 +33,7 @@ module.exports = {
       .findByUserId(req.params.id)
       .then((student) =>
         res.json({
-          message: "Getting student assosiated with the mentor",
+          message: "Getting student by user ID",
           data: student,
         })
       )

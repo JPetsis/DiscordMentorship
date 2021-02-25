@@ -12,8 +12,8 @@ module.exports = {
   },
   save(user) {
     return db.one(
-      `INSERT INTO users (discord_id, first_name, last_name, email, created_at) 
-      VALUES ($/discord_id/, $/first_name/, $/last_name/, $/email/, $/created_at/)
+      `INSERT INTO users (discord_id, email, created_at) 
+      VALUES ($/discord_id/, $/email/, $/created_at/)
       RETURNING *`,
       user
     );
@@ -25,7 +25,7 @@ module.exports = {
       first_name = $/first_name/,
       last_name = $/last_name/,
       bio = $/bio/,
-      linked_id = $/linked_id/,
+      linked_in = $/linked_in/,
       github = $/github/,
       portfolio = $/portfolio/,
       last_login = $/last_login/

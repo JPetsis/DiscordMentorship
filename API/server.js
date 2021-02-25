@@ -1,14 +1,23 @@
 require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+
+/* Dependencies */
+const express = require('express');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const cors = require('cors');
+const chalk = require('chalk');
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3001;
 
 /* Middleware */
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 /* Routes */
@@ -22,4 +31,4 @@ app.use("/mentorTags", require("./routes/mentorTagRoutes"));
 /* Default Routes */
 app.use("/", (req, res) => res.json({ message: "Discord Mentorship API" }));
 
-app.listen(port, () => console.log(`My API listening on port ${port}!`));
+app.listen(PORT, () => console.log(chalk.hex("#00ff00")("[HTTP]") + ` Discord Mentorship API listening on port ${PORT}`));

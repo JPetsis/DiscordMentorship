@@ -9,6 +9,8 @@ const path = require('path');
 const cors = require('cors');
 const chalk = require('chalk');
 
+const verifyToken = require('./middleware/verifyToken');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 

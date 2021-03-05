@@ -17,6 +17,7 @@ app.use("/mentors", require("./routes/mentorRoutes"));
 app.use("/students", require("./routes/studentRoutes"));
 app.use("/tags", require("./routes/tagRoutes"));
 app.use("/studentTags", require("./routes/studentTagRoutes"));
+app.use("/mentorTags", require("./routes/mentorTagRoutes"));
 
 /* Default Routes */
 app.use("/", (req, res) => res.json({ message: "Discord Mentorship API" }));

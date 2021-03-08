@@ -3,8 +3,9 @@ import {
     REMOVE_USERDATA
 } from './actionTypes';
 
-export const addUserData = () => ({
-    type: ADD_USERDATA
+export const addUserData = content => ({
+    type: ADD_USERDATA,
+    payload: content
 });
 
 export const removeUserData = () => ({

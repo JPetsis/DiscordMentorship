@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = (req, user) => {
+module.exports = (res, user) => {
     const payload = {
         id: user.id,
         username: user.username,
@@ -9,9 +9,9 @@ module.exports = (req, user) => {
         avatar: user.avatar
     };
 
-    const token = jst.sign(payload, process.env.TOKEN_SECRET, {
+    const token = jwt.sign(payload, process.env.TOKEN_SECRET, {
         expiresIn: "12h"
     });
     payload.token = token;
-    resizeBy.json({ data: payload });
+    res.json({ data: payload });
 };

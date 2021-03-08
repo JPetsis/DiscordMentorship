@@ -10,6 +10,8 @@ import {
     MDBBtn
 } from 'mdbreact';
 
+import Login from '../sections/Login';
+
 function HomePage() {
     return(
         <div id="HomePage">
@@ -51,6 +53,8 @@ function HomePage() {
                 </Row>
             </Container>
             </MDBView>
+
+            <Login />
         </div>
     );
 };

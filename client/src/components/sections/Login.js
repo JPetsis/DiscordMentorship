@@ -15,8 +15,8 @@ const Login = () => {
             let code = window.location.search.split("code=")[1];
 
             loginServices.login(code)
-            .then(userData => {
-                dispatch(addUserData(userData.data));
+            .then(results => {
+                dispatch(addUserData(results.data.data));
                 setFireRedirect(true);
             })
             .catch(err => console.error(err)); // Update this to use MDB Toast so Users can know about failed logins

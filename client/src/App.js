@@ -1,24 +1,24 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import HomePage from './components/pages/HomePage';
 import NavBar from './components/navigation/NavBar';
 import Footer from './components/navigation/Footer';
+import Error404 from './components/navigation/Error404';
 
 function App() {
 
-    const _NavBarRoutes = [
-        "/"
-    ];
-
     return(
         <div id="App">
-        <Router>
+            <Router>
             <div>
-            <Route exact path={_NavBarRoutes} component={NavBar} />
-            <Route exact path="/" component={HomePage} />
-            <Footer />
+                <NavBar />
+                <Switch>
+                    <Route exact path="/" component={HomePage} />
+                    <Route component={Error404} />
+                </Switch>
+                <Footer />
             </div>
-        </Router>
+            </Router>
         </div>
     );
 }

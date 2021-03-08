@@ -1,6 +1,7 @@
 const discordServices = require('../services/discordServices');
 const discordTokensDB = require('../models/discordTokensDB');
 const discordTokensController = require('./dbControllers/discordTokensController');
+const usersController = require('./dbControllers/usersController');
 const issueToken = require('../middleware/issueToken');
 const moment = require('moment');
 
@@ -12,6 +13,7 @@ module.exports.login = (req, res, next) => {
     .catch(err => next(err));
 
     function getDiscordUserInfo(discordToken) {
+        console.log("Getting Discord User Info");
         loginData.discordToken = discordToken;
         discordServices.getUserInfo(discordToken.access_token)
         .then(discordUser => checkForToken(discordUser.data))
@@ -26,7 +28,6 @@ module.exports.login = (req, res, next) => {
                 access_token: loginData.discordToken.access_token,
                 refresh_token: loginData.discordToken.refresh_token,
                 expires_in: loginData.discordToken.expires_in,
-                issued_at: moment()
             };
             discordTokensController.save(data, checkForUser);
         });

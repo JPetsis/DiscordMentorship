@@ -8,7 +8,7 @@ services.getToken = (code, redirect) => {
     const data = {
         grant_type: "authorization_code",
         code: code,
-        redirect_url: redirect
+        redirect_uri: redirect
     };
     const config = {
         headers: { "Authorization": `Basic ${creds}` }

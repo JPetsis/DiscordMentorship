@@ -1,12 +1,13 @@
 import {
-    ADD_PLACEHOLDER,
-    REMOVE_PLACEHOLDER
+    ADD_USERDATA,
+    REMOVE_USERDATA
 } from './actionTypes';
 
-export const addPlaceholder = () => ({
-    type: ADD_PLACEHOLDER
+export const addUserData = content => ({
+    type: ADD_USERDATA,
+    payload: content
 });
 
-export const removePlaceholder = () => ({
-    type: REMOVE_PLACEHOLDER
+export const removeUserData = () => ({
+    type: REMOVE_USERDATA
 });

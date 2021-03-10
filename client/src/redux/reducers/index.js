@@ -1,9 +1,9 @@
-import placeholderReducer from './placeholder';
+import userData from './userData';
 
 import { combineReducers } from 'redux';
 
 const reducers = combineReducers({
-    placeholder: placeholderReducer
+    userData: userData
 });
 
 export default reducers;

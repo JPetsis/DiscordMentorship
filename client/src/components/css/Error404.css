@@ -1,0 +1,14 @@
+#Error404 .view {
+    height: 60vh !important;
+}
+
+#Error404 .main-text {
+    font-size: 300px;
+    font-weight: 700;
+    color: #bdbdbd;
+}
+
+#Error404 .row {
+    position: relative;
+    top: 80px;
+}

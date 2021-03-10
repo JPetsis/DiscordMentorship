@@ -1,0 +1,44 @@
+#NavBarProfile .user-avatar {
+    height: 30px;
+    background: transparent;
+}
+
+#NavBarProfile .user-avatar:hover {
+    background: inherit;
+}
+
+#NavBarProfile .dropdown-toggle {
+    background: transparent !important;
+    padding: 0;
+    font-size: 15px;
+}
+
+#NavBarProfile .dropdown-toggle:hover, #NavBarProfile .dropdown-item:focus, #NavBarProfile .dropdown-item:hover {
+    background: transparent !important;
+}
+
+#NavBarProfile .dropdown-menu {
+    background: #202020;
+}
+
+#NavBarProfile .dropdown-item {
+    color: white;
+}
+
+#NavBarProfile .dropdown-menu .nav-link {
+    padding-left: 0 !important;
+    padding-bottom: 2.5px;
+    padding-top: 2px;
+}
+
+#NavBarProfile .dropdown-menu .dropdown-item:hover {
+    background: rgb(65, 65, 65) !important;
+    box-shadow: none;
+    width: 100%;
+}
+
+#NavBarProfile .dropdown-item:hover .username-display:hover {
+    background: transparent !important;
+    box-shadow: none;
+    width: 100%;
+}

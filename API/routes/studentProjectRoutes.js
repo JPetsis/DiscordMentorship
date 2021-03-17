@@ -1,20 +1,20 @@
 const express = require("express");
-const studentsProjectsController = require("../controllers/studentsProjectsController");
+const studentProjectsController = require("../controllers/studentProjectsController");
 const studentProjectsRouter = express.Router();
 
 studentProjectsRouter
   .route("/")
-  .get(studentsProjectsController.index)
-  .post(studentsProjectsController.create)
-  .put(studentsProjectsController.update);
+  .get(studentProjectsController.index)
+  .post(studentProjectsController.create)
+  .put(studentProjectsController.update);
 
 studentProjectsRouter
   .route("/id/:id")
-  .get(studentsProjectsController.getOne)
-  .delete(studentsProjectsController.delete);
+  .get(studentProjectsController.getOne)
+  .delete(studentProjectsController.delete);
 
 studentProjectsRouter
   .route("/studentId/:id")
-  .get(studentsProjectsController.getByStudentId);
+  .get(studentProjectsController.getByStudentId);
 
 module.exports = studentProjectsRouter;

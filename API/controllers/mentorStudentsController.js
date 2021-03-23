@@ -33,7 +33,7 @@ module.exports = {
       .findByStudentsId(req.params.id)
       .then((mentorStudent) =>
         res.json({
-          message: "Getting Student assosiated with a Mentor",
+          message: "Getting Students assosiated with a Mentor",
           data: mentorStudent,
         })
       )
@@ -46,10 +46,10 @@ module.exports = {
   getByMentorsId(req, res, next) {
     mentorStudentsDB
       .findByTagsId(req.params.id)
-      .then((mentorStudent) =>
+      .then((mentorStudents) =>
         res.json({
-          message: "Getting Mentor assosiated with a Student",
-          data: mentorStudent,
+          message: "Getting Mentor assosiated with Students",
+          data: mentorStudents,
         })
       )
       .catch((err) => {
@@ -57,6 +57,21 @@ module.exports = {
           return res.json({ data: {} });
         else next(err);
       });
+  },
+  getByMentorsIdAndStudentsId(req, res, next) {
+    let queryData = { mentors_id: req.params.mentorsId, students_id: req.params.students_id };
+    mentorStudentsDB.findByMentorsIdAndStudentsId(queryDaya)
+    .then(mentorStudent => {
+      res.json({
+        message: "Getting Student Assosiated with Mentor",
+        data: mentorStudent
+      })
+    })
+    .catch(err => {
+      if (err instanceof QRE && err.code === qrec.noData)
+        return res.json({ data: {} });
+      else next(err);
+    })
   },
   create(req, res, next) {
     mentorStudentsDB

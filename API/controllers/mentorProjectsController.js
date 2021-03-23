@@ -31,15 +31,15 @@ module.exports = {
   getByMentorId(req, res, next) {
     mentorProjectsDB
       .findByMentorId(req.params.id)
-      .then((mentorProject) =>
+      .then((mentorProjects) =>
         res.json({
           message: "Getting mentor Project by mentor Id",
-          data: mentorProject,
+          data: mentorProjects,
         })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)
-          return res.json({ data: {} });
+          return res.json({ data: [] });
         else next(err);
       });
   },

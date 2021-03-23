@@ -19,6 +19,10 @@ mentorStudentRouter
 
 mentorStudentRouter
   .route("/mentorId/:id")
-  .get(mentorStudentsController.getByMentorId);
+  .get(mentorStudentsController.getByMentorsId);
+
+mentorStudentRouter
+  .route("/mentor/mentorsId/:mentorsId/students/studentsId/:studentsId")
+  .get(mentorStudentsController.getByMentorsIdAndStudentsId);
 
 module.exports = mentorStudentRouter;

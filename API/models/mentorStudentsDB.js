@@ -8,12 +8,15 @@ module.exports = {
     return db.one("SELECT * FROM mentor_students WHERE id = $1", id);
   },
   findByStudentsId(data) {
-    return db.one("SELECT * FROM mentor_students WHERE students_id = $1", data);
+    return db.many("SELECT * FROM mentor_students WHERE students_id = $1", data);
   },
   findByMentorsId(data) {
-    return db.one("SELECT * FROM mentor_students WHERE mentors_id = $1", data);
+    return db.many("SELECT * FROM mentor_students WHERE mentors_id = $1", data);
   },
-  save(studentTag) {
+  findByMentorsIdAndStudentsId(data) {
+    return db.one('SELECT * FROM mentor_students WHERE mentors_id = $/mentors_id/ AND students_id = $/students_id/', data);
+  },
+  save(mentorStudent) {
     return db.one(
       `INSERT INTO mentor_students (mentors_id, students_id) 
       VALUES ($/mentors_id/, $/students_id/)
@@ -21,7 +24,7 @@ module.exports = {
       mentorStudent
     );
   },
-  update(studentTag) {
+  update(mentorStudent) {
     return db.one(
       `UPDATE mentor_students
     SET

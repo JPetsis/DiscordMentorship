@@ -31,15 +31,15 @@ module.exports = {
   getByStudentId(req, res, next) {
     studentProjectsDB
       .findByStudentId(req.params.id)
-      .then((studentProject) =>
+      .then((studentProjects) =>
         res.json({
           message: "Getting student Project by student Id",
-          data: studentProject,
+          data: studentProjects,
         })
       )
       .catch((err) => {
         if (err instanceof QRE && err.code === qrec.noData)
-          return res.json({ data: {} });
+          return res.json({ data: [] });
         else next(err);
       });
   },

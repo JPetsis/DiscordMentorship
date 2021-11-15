@@ -16,7 +16,7 @@ import {
 
 import NavBarProfile from '../sections/NavBarProfile';
 
-import env from '../../../env';
+import env from '../../.env';
 
 const NavBar = () => {
 
